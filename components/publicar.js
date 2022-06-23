@@ -5,6 +5,7 @@ import upLoad from './upImage.js'
 
 const publicar = async (data) => {
     try {
+        console.log(data)
         await download(data.urlImage, `images/${data.featured_media}.jpg`)
         const idImage = await upLoad(data.featured_media)
         let todo = {
@@ -23,6 +24,7 @@ const publicar = async (data) => {
             },
             body: JSON.stringify(todo)
         })
+        console.log(await response.json())
         const { status } = await response.json()
         console.log(status)
     } catch (e) {

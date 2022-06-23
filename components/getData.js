@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
-const noticia = []
 
 const response = async (URL) => {
+    const noticia = []
     try {
         const resultado = await fetch(URL)
         const json = await resultado.json()

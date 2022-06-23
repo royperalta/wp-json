@@ -1,10 +1,12 @@
 import fetch from 'node-fetch'
 const URL = "https://radioondapopular.com/wp-json/jwt-auth/v1/token"
+import dotenv from 'dotenv'
+dotenv.config({path:".env"})
 const token = async (URL) => {
    try{
     let data = {
-        "username":"",
-        "password":""
+        "username":process.env.USER,
+        "password":process.env.PASSWORD
      }
     const response = await fetch(URL,{
         method: 'POST',
